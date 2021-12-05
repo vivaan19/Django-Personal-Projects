@@ -1,0 +1,59 @@
+This is about How to Make Websites Using bootstrap and handle with django. 
+
+1. Use of template inheritance, this means that we can extend the features of a base template
+    including its own and adding our own. 
+Ex: 
+-->Base_Template.html 
+   --> extend1.html
+   --> extend2.html
+   --> extend3.html
+Here it means that Base_Template.html is serving as a base template for all extend htmls. 
+The function can be extended in base by code blocks provided by django. 
+
+2. How to submit the form, means that the data after clicking submit button the data will be stored in the 
+data base. 
+    Steps: 
+    a. First in the form tag use the attribute "method" and give "post" value to it, method = "post". 
+    b. Then use "action" attribute which is used for who will handle the submission, in this case we are 
+        submitting through the contact page itself, so action="/contact". 
+    c. Then add the csrf token for security after the form tag {% csrf_token %}. 
+    d. Then after submitting the form, nothing will happen as because we have not set our database. 
+    e. After submitting it will go to app urls.py and then to views.py , now inside the view we have add our logic 
+        to submit the form. 
+    f. In order to do so, we have to work with models and import that model to views. 
+    g. Go to models and create a class named contact(models.Model) and inside it define all the form filds viz
+        name, email, phone. The name of every field should be used here. 
+    h. Then give all form fields value as django fields, means that what type of data should be associated and stored in
+       database according to that field. 
+        Ex: name = models.CharField(maxlength=122)
+            email = models.CharField(maxlength=122)
+            phone = models.CharField(maxlength=12)
+            desc = models.TextField(maxlength=122) 
+        this bascially means that contact is a table and these are the coloums in it. 
+    i. Then register this model in admin.py: first import contact from models, then register it. 
+        Ex: from <app_name>.models import <table_name>
+            admin.site.register(<table_name>)
+    j. Then go to app.py copy <application_name>Config and paste it in the setting.py in installed apps as: 
+        <application_name>.apps.HomeConfig
+    k. Then run the server through manage.py runserver and makemigrations. 
+        Ex: python manage.py runserver
+            python manage.py makemigrations
+        makemigrations will generate a changed migration file for the database.
+    l. Then do python manage.py migrate this will make changes to the database.  
+    m. Then in views in contact we have to add our logic : 
+        if request.method == "POST":
+            name = request.POST.get("name")
+            email = request.POST.get("email")
+            phone = request.POST.get("phone")
+            desc = request.POST.get("desc")
+        then import contact class from models
+        and make a object of contact by:
+        contact=contact(name="name", phone="phone", email="email", desc="desc", date="datetime.today()")
+        then save the contact object by:
+        contact.save()
+    o. after this in database the entires would be reflected as object1, object2.etc but if 
+        we want name of instead of objects we have to add a function in model.py as:
+
+        def __str__(self):
+            return self.name
+     
