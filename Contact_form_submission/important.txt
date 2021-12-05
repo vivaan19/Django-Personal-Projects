@@ -1,0 +1,114 @@
+This was about basic Django Web Usage. 
+
+1.To start a project in django 
+django-admin startproject <Name_of_project>
+This will create a folder of project_name and in it 
+exact project_name folder consists of important things of how to make a project. 
+Ex: I created "Sample" project. 
+
+2. To run django server
+python <server_name> runserver,
+it will return the host name where website is hosted.  
+Search the host_name in brower.
+
+3. Django runs on MVT (Model View Template) Arch.  
+
+-> Model : Contains the info of how to create a database. It is meta data for a database. 
+
+-> View : Associated with Template. It pulls data from database i.e form model, processes 
+the data and pushes to template.
+
+-> Template : It is mainly HTML, CSS, JS but it has placeholders as view gives data to template, 
+as python variable, to see the output placeholders are their. 
+
+4. The work of URL dispacher is to fetch link stored in database and retrive data from it. 
+
+5. Any Django project has atleast one app in it for working.
+Ex: There is a website and in it there are multiple apps webpages for differnt works, the main URL is same
+but after it we can add differnt webpages. 
+
+6. To create a app in a project in django use : 
+python manage.py startapp <name_of_app>
+This will create a folder of the app in which all things are there to work on it. 
+
+7. To see the subcommands for django use : 
+python manage.py 
+this will help to run commands if you forget the name of it. 
+
+8. There is url.py file in django which tracks of all url stored there and where it is redirecting.
+Ex: urlpatterns = [
+    path('admin/', admin.site.urls),
+]
+This means that if we add /admin to main url, then that will redirect to the default admin 
+page of django.
+We can add multiple urlpatterns in this.
+
+9. To change django default home page to some other page, we have to follow these steps:
+    a. first make a app in project folder.
+
+    b. make a urls.py file in app, and copy the content of project urls.py
+    
+    c. In project urls.py add the path("", include("<app_name>.urls")) after path admin. 
+        this means that in home page the contents will be redirected to app_name.urls.
+    
+    d. Then come to app urls.py, import view from app_name, inside urlpatterns remove admin one 
+        and add the blank page one i.e : path("", views.index, name=<app_name>)
+    
+    e. Then go to views.py in app folder, add a function called index pass a parameter and import HttpResponse
+        and then return HttpResponse("<The required message at the home page>")
+    
+    f. After these steps go to same django home page and relode, you will see the required text. 
+
+10. Static files are those files which anybody can see when they visit the url. 
+So here does not put any confidencial information. 
+
+11. There is a STATIC_URL = '/static/' in setting which is used to access static pages in our
+directory. 
+
+12. To create static pages do the following steps : 
+    a. First create a static folder in main project and add some static content like: txt, image
+    b. In setting go to the documentation of static and copy "STATICFILES_DIRS" this defines
+        where is static directory in parent project. 
+    c. Now we are creating only one static file so clear the var/www/static line.
+    d. Paste the code after static in setting. 
+    e. And run the server and test by url/static/<static_file.txt>
+    f. We can see the file is visible to us directly.
+
+13. Static is only for public use and public can see it. 
+
+14. Moving to templates, in this we create the front of website, it has mainly HTML, CSS, JS.
+We have to integrate with bootstrap in order to create beautiful webpages. 
+
+15. Using template : 
+    a. Go to settings-->template-->dirs copy "[BASE_DIR / "<name_of_template_folder>"]" in the dirs list.
+        it will tell django that template directory is in base directory which is main project dir.
+    
+    b. Add an index.html file in template dir. Add some content in it.
+
+    c. Then in views use render("requests", <template_name>) to set views.
+
+16. Send variables to a template : 
+Steps:
+    a. First put {{ varibale }} placeholder in the HTML body.
+    b. In views make a dictionary of name let say content and add variable_name as key and
+        its content as value.
+    c. In the required function add the third parameter of render as the name of dictionary i.e content here.
+    d. save it and run the server. 
+
+17. Use of bootstrap - use a starter file form bootstrap and paste in template. 
+
+18. Paste the code of navigation from bootstrap to the file in template. 
+
+19. Python manage.py makemigrations  : check any changes in the data base schema. 
+
+20. python manage.py migrate : imports some of the django tables for authentication. 
+
+21. To make a super user for django admin authentication.
+python manage.py createsuperuser
+
+22. To change header, title, index titile in admin page add :: 
+admin.site.site_header = ""
+admin.site.site_title = ""
+admin.site.index_title = ""
+in main priject urls file.
+Admin page is the main backend for a website, all data will be stored here.
