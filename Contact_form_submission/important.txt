@@ -7,7 +7,7 @@ exact project_name folder consists of important things of how to make a project.
 Ex: I created "Sample" project. 
 
 2. To run django server
-python <server_name> runserver,
+python manage.py runserver,
 it will return the host name where website is hosted.  
 Search the host_name in brower.
 

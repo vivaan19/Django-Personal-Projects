@@ -1,5 +1,5 @@
 from django.shortcuts import render ,HttpResponse
-from Sample_app.models import Contact
+from App import Contact
 from datetime import datetime
 from django.contrib import messages
 

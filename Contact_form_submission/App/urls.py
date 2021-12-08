@@ -1,7 +1,7 @@
 from django.contrib import admin
 from django.urls import path
 # from Django_Tutorials.Sample import Sample_app
-from Sample_app import views
+from . import views
 urlpatterns = [
     path("", views.index, name="Sample_app"),  # this is home page. 
     path("about", views.about, name="Sample_app"),
