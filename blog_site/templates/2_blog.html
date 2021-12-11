@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+
+{% block title %}Blog{% endblock title %}
+
+{% block body %}
+
+<div class="container pt-3">
+    <form method = "POST" action="blog">
+        {% comment %} csrf token used with POST {% endcomment %}
+        {% csrf_token %} 
+    
+      <div class="container my-3">
+        <label for="comment"><h3>Write Your Blog:-</h3></label>
+        <h6> Do not enter incomplete details </h6>
+        <h6 class=""> Blog Body Should be 100 words minimum</h6>
+    
+        <div class="my-3">
+            <input type="text" class="form-control" id="name" placeholder="Author" name="name", value="{{user.username}}"readonly>
+        </div>
+        
+        <div class="my-3">
+            <input type="text" class="form-control" id="title" placeholder="Title" name="title">
+        </div>
+        
+        <textarea class="form-control" rows="5" id="body" name="body" placeholder="Body"></textarea>
+    
+        <button type="submit" class="btn btn-primary mt-3">Submit</button>
+    
+    </div>
+</form>
+
+{% comment %} {% if user.is_authenticated %}
+    <h1>Welcome, {{ user.username }}</h1>
+    <p>Click <a href = "logout">here</a> to logout.</p>
+{% else %}
+    <h1>Welcome, User </h1>
+{% endif %}
+ {% endcomment %}
+
+{% endblock body %}

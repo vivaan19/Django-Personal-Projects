@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+{% block title %}Login/Signup{% endblock title %}
+
+{% block body %}
+
+<div class="container mt-3">
+    <h1>Login Form</h1>
+    
+    <h4>If not registerd then register <a href="register"><button type="button" class="btn btn-info btn-block text-black"><h5 class="m-0 p-0">HERE</h5></button></a></h4>
+    
+    <form method = "POST" action = "login">
+          {% csrf_token %}
+    
+        <div class="mb-3 mt-3">
+          <label for="username">Username:</label>
+          <input type="text" class="form-control" id="username" placeholder="Enter username" name="username">
+        </div>
+    
+        <div class="mb-3">
+          <label for="pwd">Password:</label>
+          <input type="password" class="form-control" id="pwd" placeholder="Enter password" name="password">
+        </div>
+    
+        <div class="form-check mb-3">
+          <label class="form-check-label">
+            <input class="form-check-input" type="checkbox" name="remember"> Remember me
+          </label>
+        </div>
+    
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </form>
+</div>
+
+{% endblock body %}

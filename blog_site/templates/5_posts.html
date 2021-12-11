@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% block title %}{{my_post.name}}{% endblock title %}
+{% block body %}
+
+<div class="container-fluid mt-0 p-0">
+  <div class="d-flex justify-content-center bg-light py-3 mb-5">
+  <h1 class="display-2"> People's Blog </h1>
+  </div>
+      <div class="bg-light p-3 mb-3">
+      <h3> {{ my_post.blog_title }} </h3>
+      <h4> By {{ my_post.name }} </h4>
+      <h6> {{ my_post.created_at }} </h6>
+      <p>
+          {{ my_post.content }}
+      </p>
+      </div>
+</div>
+
+{% endblock body %}
