@@ -15,8 +15,12 @@ def base(request):
 
 def post(request, var):
     my_post =  blog_model.objects.get(id = var)
-    name = blog_model.objects.get(name = var)
-    return render(request, "5_posts.html", {'my_post':my_post, 'name':name})
+    return render(request, "5_posts.html", {'my_post':my_post})
+
+# def user(request, nam):
+#     user_obj = blog_model.objects.get(name = nam)
+#     all_obj = blog_model.objects.all()
+#     return render(request, "6_user.html", {'user_obj':user_obj, 'all_obj':all_obj})
 
 def blog(request):
     if request.method == "POST":

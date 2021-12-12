@@ -35,15 +35,15 @@
                 {% endif %}
               </li>
 
-              <li class="nav-item dropdown">
+              {% comment %} <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="/" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                   See People's Blog
-                </a>
-                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                </a> 
+                 <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                     {% for users in obj %}
-                  <li><a class="dropdown-item" href="post/{{users.name}}">{{ users.name }}</a></li>
+                  <li><a class="dropdown-item" href="user/{{users.name}}">{{ users.name }}</a></li>
                   {% endfor %}
-                </ul>
+                </ul> {% endcomment %}
               </li>
             </ul>
           </div>

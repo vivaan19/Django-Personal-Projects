@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% block title %}User|{{ user_obj.name }}{% endblock title %}
+{% block body %}
+
+<div class="container-fluid mt-0 p-0">
+  <div class="d-flex justify-content-center bg-light py-3 mb-5">
+  <h1 class="display-2"> {{ user_obj.name }}'s Blog </h1>
+  </div>
+  {% for user in all_obj reversed %}
+      {% if user_obj.name == user.name %}
+      <div class="bg-light p-3 mb-3">
+          <h3> {{user.blog_title}} </h3>
+          <h4> By {{ user.name }} </h4>
+          <h6> {{ user.created_at }} </h6>
+          <p>
+              {{user.content}}
+            </p>
+        </div>
+    {% endif %}
+  {% endfor %}
+</div>
+
+{% endblock body %}
