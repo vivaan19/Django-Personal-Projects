@@ -6,14 +6,14 @@
   <div class="d-flex justify-content-center bg-light py-3 mb-5">
   <h1 class="display-2"> People's Blog </h1>
   </div>
-  {% for post in obj reversed %}
-      <a style="text-decoration:none; color:black;" href="post/{{post.id}}">
+  {% for ele in obj reversed %}
+      <a style="text-decoration:none; color:black;" href="post/{{ele.id}}">
       <div class="bg-light p-3 mb-3">
-      <h3> {{post.blog_title}} </h3>
-      <h4> By {{ post.name }} </h4>
-      <h6> {{ post.created_at }} </h6>
+      <h3> {{ele.blog_title}} </h3>
+      <h4> By {{ ele.name }} </h4>
+      <h6> {{ ele.created_at }} </h6>
       <p>
-          {{post.content|truncatewords:20}}
+          {{ele.content|truncatewords:20}}
       </p>
       </div>
       </a>

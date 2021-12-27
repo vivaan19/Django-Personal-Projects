@@ -10,5 +10,5 @@ urlpatterns = [
     path("logout", views.logout, name="logout"),
     path("", views.base, name="base"),
     path("post/<str:var>", views.post, name="post"), 
-    path("user/<str:nam>", views.user, name="user")
+    # path("user/<str:nam>", views.user, name="user")
 ]

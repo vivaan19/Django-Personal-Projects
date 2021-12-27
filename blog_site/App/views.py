@@ -4,14 +4,13 @@ from django.contrib import messages
 from django.contrib.auth.models import User, auth
 from .models import blog_model
 
+def base(request):
+    obj = blog_model.objects.all()
+    return render(request, "base.html", {'obj':obj})
 
 def index(request):
     obj = blog_model.objects.all()
     return render(request, "1_index.html", {'obj':obj})
-
-def base(request):
-    obj = blog_model.objects.all()
-    return render(request, "base.html", {'obj':obj})
 
 def post(request, var):
     my_post =  blog_model.objects.get(id = var)
