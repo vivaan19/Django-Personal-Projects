@@ -5,6 +5,7 @@
 <div class="container-fluid mt-0 p-0">
   <div class="d-flex justify-content-center bg-light py-3 mb-5">
   <h1 class="display-2"> People's Blog </h1>
+  {% comment %} <a href="{% url 'login' %}"> test </a> {% endcomment %}
   </div>
   {% for ele in obj reversed %}
       <a style="text-decoration:none; color:black;" href="post/{{ele.id}}">

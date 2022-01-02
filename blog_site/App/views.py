@@ -6,7 +6,8 @@ from .models import blog_model
 
 def base(request):
     obj = blog_model.objects.all()
-    return render(request, "base.html", {'obj':obj})
+    username = blog_model.objects.values("name").distinct()
+    return render(request, "base.html", {'obj':obj, 'username':username})
 
 def index(request):
     obj = blog_model.objects.all()
@@ -17,7 +18,7 @@ def post(request, var):
     return render(request, "5_posts.html", {'my_post':my_post})
 
 # def user(request, nam):
-#     user_obj = blog_model.objects.filter(name = nam)
+#     user_obj = blog_model.objects.values("name").distinct()
 #     all_obj = blog_model.objects.all()
 #     return render(request, "6_user.html", {'all_obj':all_obj, "user_obj": user_obj})
 

@@ -36,18 +36,18 @@
               </li>
 
               {% comment %} <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="/base" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                <a class="nav-link dropdown-toggle" href="/" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                   See People's Blog
                 </a> 
                  <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    {% for users in obj %}
+                    {% for users in username %}
                   <li><a class="dropdown-item" href="user/{{users.name}}">{{ users.name }}</a></li>
                   {% endfor %}
                 </ul>
-              </li> {% endcomment %}
+              </li>  {% endcomment %}
 
 
-              
+
             </ul>
           </div>
         </div>
