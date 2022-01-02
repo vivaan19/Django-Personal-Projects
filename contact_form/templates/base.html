@@ -10,9 +10,63 @@
 
     <title>Contact Form Registration</title>
   </head>
+  
   <body>
+
+  {% if messages %}
+    {% for message in messages %}
+    <div class="alert alert-{{ message.tags }} alert-dismissible fade show my-0" role="alert">
+      <strong>{{ message }}</strong>
+      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+  {% endfor %}
+  {% endif %}
+    <div class="container-fluid p-0">
+      <img src="https://source.unsplash.com/idhx-MOCDSk/1100x430" class="d-block w-100" alt="...">
+      <h1 class="my-4 text-center display-3 ">Enter Your Details</h1>
+    </div>
     
-    {% block body %}{% endblock body %}
+    <div class="container py-2">
+      <form method = "post" action = "submit">
+      {% csrf_token %}
+    
+        <div class="mb-3">
+          <label for="name" class="form-label">Name</label>
+          <input type="text" class="form-control" id="name" name="name" placeholder="Enter Your Name">
+        </div>
+    
+        <div class="mb-3">
+          <label for="email" class="form-label">Email address</label>
+            <input type="email" class="form-control" id="email" name="email" placeholder="Enter Your Email">
+            <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+        </div>
+              
+        <div class="mb-3">
+          <label for="phone" class="form-label">Phone Number</label>
+          <input type="phone" class="form-control" id="phone" name="phone" placeholder="Enter Your Phone">
+        </div>
+              
+              {% comment %} <div class="mb-3">
+                <label for="exampleInputPassword1" class="form-label">Password</label>
+                <input type="password" class="form-control" id="exampleInputPassword1">
+              </div> {% endcomment %}
+    
+              {% comment %} <div class="mb-3 form-check">
+                <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                <label class="form-check-label" for="exampleCheck1">Check me out</label>
+              </div> {% endcomment %}
+    
+        <div class="mb-3">
+          <label for="desc" class="form-label">Comment</label>
+          <textarea class="form-control" id="desc" rows="3" name="desc" placeholder="Tell me what you want to contact me for...."></textarea>
+        </div>
+    
+        <div class="d-grid gap-0 col-5 mx-auto">
+          <button type="submit" class="btn btn-primary mx-auto">Submit</button>
+        </div>
+    
+      </form>
+    </div>  
     <!-- Optional JavaScript; choose one of the two! -->
 
     <!-- Option 1: Bootstrap Bundle with Popper -->
