@@ -6,7 +6,7 @@
   <div class="d-flex justify-content-center bg-light py-3 mb-5">
   <h1 class="display-2"> {{ user_obj.name }}'s Blog </h1>
   </div>
-  {% for user in all_obj reversed %}
+  {% for user in all_obj %}
       {% if user_obj.name == user.name %}
       <div class="bg-light p-3 mb-3">
           <h3> {{user.blog_title}} </h3>
